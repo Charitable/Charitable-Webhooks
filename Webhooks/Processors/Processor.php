@@ -43,7 +43,7 @@ abstract class Processor implements ProcessorInterface {
 	/**
 	 * Process the webhook.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean|void
 	 */
@@ -52,7 +52,7 @@ abstract class Processor implements ProcessorInterface {
 	/**
 	 * Return the HTTP status to send for a processed event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return int
 	 */
@@ -63,7 +63,7 @@ abstract class Processor implements ProcessorInterface {
 	/**
 	 * Response text to send for a processed event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */
@@ -74,7 +74,7 @@ abstract class Processor implements ProcessorInterface {
 	/**
 	 * Set the response to send.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @param  string $message     Response message.
 	 * @param  int    $http_status HTTP status to send.

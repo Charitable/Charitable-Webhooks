@@ -25,7 +25,7 @@ Interface ProcessorInterface {
 	/**
 	 * Process the webhook.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean|void
 	 */
@@ -34,7 +34,7 @@ Interface ProcessorInterface {
 	/**
 	 * Return the HTTP status to send for a processed event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return int
 	 */
@@ -43,7 +43,7 @@ Interface ProcessorInterface {
 	/**
 	 * Response text to send for a processed event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */

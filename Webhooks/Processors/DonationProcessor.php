@@ -6,8 +6,8 @@
  * @author    Eric Daams
  * @copyright Copyright (c) 2021, Studio 164a
  * @license   http://opensource.org/licenses/gpl-2.0.php GNU Public License
- * @since     1.7.0
- * @version   1.7.0
+ * @since     1.0.0
+ * @version   1.0.0
  */
 
 namespace Charitable\Webhooks\Processors;
@@ -59,7 +59,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Get class properties.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @param  string $prop The property to retrieve.
 	 * @return mixed
@@ -71,7 +71,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Process the webhook event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean|void
 	 */
@@ -107,7 +107,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Process a refund.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean
 	 */
@@ -129,7 +129,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Process a failed payment for a donation.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean
 	 */
@@ -148,7 +148,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Process a completed payment.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean
 	 */
@@ -167,7 +167,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Process a cancelled donation.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean
 	 */
@@ -187,7 +187,7 @@ class DonationProcessor extends Processor {
 	 * Process a donation that has been updated in some way without
 	 * the status necessarily changing.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean
 	 */
@@ -210,7 +210,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Save the gateway transaction ID and URL if available.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return void
 	 */
@@ -224,7 +224,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Update logs for the donation.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return void
 	 */
@@ -239,7 +239,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Update meta for the donation.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return void
 	 */

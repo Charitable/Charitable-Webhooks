@@ -25,7 +25,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Get the donation object.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return Charitable_Donation|false Returns the donation if one matches the webhook.
 	 *                                   If not, returns false.
@@ -35,7 +35,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Get the type of event described by the webhook.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */
@@ -44,7 +44,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Get the refunded amount.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return float|false The amount to be refunded, or false if this is not a refund.
 	 */
@@ -53,7 +53,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Get a log message to include when adding the refund.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */
@@ -62,7 +62,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Return the gateway transaction ID.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string|false The gateway transaction ID if available, otherwise false.
 	 */
@@ -71,7 +71,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Return the gateway transaction URL.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string|false The URL if available, otherwise false.
 	 */
@@ -80,7 +80,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Return the donation status based on the webhook event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */
@@ -89,7 +89,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Return an array of log messages to update the donation.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return array
 	 */
@@ -98,7 +98,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Return an array of meta data to add/update for the donation.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return array
 	 */
@@ -107,7 +107,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Get the response message.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */
@@ -116,7 +116,7 @@ Interface DonationInterpreterInterface {
 	/**
 	 * Get the response HTTP status.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return int
 	 */

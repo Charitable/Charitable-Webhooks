@@ -91,7 +91,7 @@ function handle( $source ) {
 /**
  * Save the gateway's transaction URL.
  *
- * @since  1.7.0
+ * @since  1.0.0
  *
  * @param  string|false $url The URL of the transaction in the gateway account.
  * @return boolean
@@ -109,7 +109,7 @@ function set_gateway_transaction_url( $url, $donation ) {
 /**
  * Save the gateway's subscription URL.
  *
- * @since  1.7.0
+ * @since  1.0.0
  *
  * @param  string|false $url The URL of the subscription in the gateway account.
  * @return boolean

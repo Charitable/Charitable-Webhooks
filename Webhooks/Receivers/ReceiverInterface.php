@@ -25,7 +25,7 @@ Interface ReceiverInterface {
 	/**
 	 * Check whether this is a valid webhook.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return boolean
 	 */
@@ -34,7 +34,7 @@ Interface ReceiverInterface {
 	/**
 	 * Get the Processor to use for the webhook event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return Processor
 	 */
@@ -43,7 +43,7 @@ Interface ReceiverInterface {
 	/**
 	 * Return the Interpreter object to use for donation webhooks.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return Interpreter
 	 */
@@ -52,7 +52,7 @@ Interface ReceiverInterface {
 	/**
 	 * Return the HTTP status to send for an invalid event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return int
 	 */
@@ -61,7 +61,7 @@ Interface ReceiverInterface {
 	/**
 	 * Response text to send for an invalid event.
 	 *
-	 * @since  1.7.0
+	 * @since  1.0.0
 	 *
 	 * @return string
 	 */
