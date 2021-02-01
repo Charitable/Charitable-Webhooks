@@ -25,7 +25,7 @@ abstract class Processor implements ProcessorInterface {
 	/**
 	 * Response message.
 	 *
-	 * @since 1.7.0
+	 * @since 1.0.0
 	 *
 	 * @var   string
 	 */
@@ -34,7 +34,7 @@ abstract class Processor implements ProcessorInterface {
 	/**
 	 * HTTP status to use for response message.
 	 *
-	 * @since 1.7.0
+	 * @since 1.0.0
 	 *
 	 * @var   int
 	 */

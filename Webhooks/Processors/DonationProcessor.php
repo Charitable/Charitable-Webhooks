@@ -23,14 +23,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Donation Processor.
  *
- * @since 1.7.0
+ * @since 1.0.0
  */
 class DonationProcessor extends Processor {
 
 	/**
 	 * Interpreter.
 	 *
-	 * @since 1.7.0
+	 * @since 1.0.0
 	 *
 	 * @var   DonationIntepreterInterface
 	 */
@@ -39,7 +39,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * The donation object.
 	 *
-	 * @since 1.7.0
+	 * @since 1.0.0
 	 *
 	 * @var   Charitable_Donation|false
 	 */
@@ -48,7 +48,7 @@ class DonationProcessor extends Processor {
 	/**
 	 * Set up the processor.
 	 *
-	 * @since 1.7.0
+	 * @since 1.0.0
 	 *
 	 * @param DonationInterpreterInterface
 	 */
@@ -95,7 +95,7 @@ class DonationProcessor extends Processor {
 		/**
 		 * Process a webhook event for which we don't have a built-in processor.
 		 *
-		 * @since 1.7.0
+		 * @since 1.0.0
 		 *
 		 * @param boolean                        $processed   Whether the webhook event was processed.
 		 * @param Charitable_Donation            $donation    The donation object.
