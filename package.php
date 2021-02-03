@@ -38,88 +38,96 @@ require_once 'Webhooks/Processors/SubscriptionProcessor.php';
 require_once 'Webhooks/Receivers/ReceiverInterface.php';
 require_once 'Webhooks/Receivers.php';
 
-/**
- * Handle the incoming webhook.
- *
- * @since  1.0.0
- *
- * @return false|void
- */
-function handle( $source ) {
+if ( ! function_exists( '\Charitable\Packages\Webhooks\handle' ) ) :
 	/**
-	 * Allow extension to hook into the handle a gateway's IPN.
+	 * Handle the incoming webhook.
 	 *
-	 * @since 1.0.0
+	 * @since  1.0.0
+	 *
+	 * @return false|void
 	 */
-	do_action( 'charitable_process_ipn_' . $source );
+	function handle( $source ) {
+		/**
+		 * Allow extension to hook into the handle a gateway's IPN.
+		 *
+		 * @since 1.0.0
+		 */
+		do_action( 'charitable_process_ipn_' . $source );
 
-	$receiver = Receivers::get( $source );
+		$receiver = Receivers::get( $source );
 
-	if ( is_null( $receiver ) ) {
-		return false;
+		if ( is_null( $receiver ) ) {
+			return false;
+		}
+
+		/* Validate the webhook. */
+		if ( ! $receiver->is_valid_webhook() ) {
+			status_header( $receiver->get_invalid_response_status() );
+			die( $receiver->get_invalid_response_message() );
+		}
+
+		$processor = $receiver->get_processor();
+
+		if ( ! $processor ) {
+			status_header( 500 );
+			die(
+				sprintf(
+					/* translators: %s: source of webhook */
+					__( 'Missing webhook processor for %s.', 'charitable' ),
+					$source
+				)
+			);
+		}
+
+		/* Process the webhook. */
+		$processor->process();
+
+		/* Set the status header. */
+		status_header( $processor->get_response_status() );
+
+		/* Die with a response message. */
+		die( $processor->get_response_message() );
 	}
 
-	/* Validate the webhook. */
-	if ( ! $receiver->is_valid_webhook() ) {
-		status_header( $receiver->get_invalid_response_status() );
-		die( $receiver->get_invalid_response_message() );
+endif;
+
+if ( ! function_exists( '\Charitable\Packages\Webhooks\set_gateway_transaction_url' ) ) :
+	/**
+	 * Save the gateway's transaction URL.
+	 *
+	 * @since  1.0.0
+	 *
+	 * @param  string|false $url The URL of the transaction in the gateway account.
+	 * @return boolean
+	 */
+	function set_gateway_transaction_url( $url, $donation ) {
+		if ( ! $url ) {
+			return false;
+		}
+
+		$key = '_gateway_transaction_url';
+		$url = charitable_sanitize_donation_meta( $url, $key );
+		return update_post_meta( $donation->ID, $key, $url );
 	}
 
-	$processor = $receiver->get_processor();
+endif;
 
-	if ( ! $processor ) {
-		status_header( 500 );
-		die(
-			sprintf(
-				/* translators: %s: source of webhook */
-				__( 'Missing webhook processor for %s.', 'charitable' ),
-				$source
-			)
-		);
+if ( ! function_exists( '\Charitable\Packages\Webhooks\set_gateway_subscription_url' ) ) :
+	/**
+	 * Save the gateway's subscription URL.
+	 *
+	 * @since  1.0.0
+	 *
+	 * @param  string|false $url The URL of the subscription in the gateway account.
+	 * @return boolean
+	 */
+	function set_gateway_subscription_url( $url, $donation ) {
+		if ( ! $url ) {
+			return false;
+		}
+
+		$key = '_gateway_subscription_url';
+		$url = charitable_sanitize_donation_meta( $url, $key );
+		return update_post_meta( $donation->ID, $key, $url );
 	}
-
-	/* Process the webhook. */
-	$processor->process();
-
-	/* Set the status header. */
-	status_header( $processor->get_response_status() );
-
-	/* Die with a response message. */
-	die( $processor->get_response_message() );
-}
-
-/**
- * Save the gateway's transaction URL.
- *
- * @since  1.0.0
- *
- * @param  string|false $url The URL of the transaction in the gateway account.
- * @return boolean
- */
-function set_gateway_transaction_url( $url, $donation ) {
-	if ( ! $url ) {
-		return false;
-	}
-
-	$key = '_gateway_transaction_url';
-	$url = charitable_sanitize_donation_meta( $url, $key );
-	return update_post_meta( $donation->ID, $key, $url );
-}
-
-/**
- * Save the gateway's subscription URL.
- *
- * @since  1.0.0
- *
- * @param  string|false $url The URL of the subscription in the gateway account.
- * @return boolean
- */
-function set_gateway_subscription_url( $url, $donation ) {
-	if ( ! $url ) {
-		return false;
-	}
-
-	$key = '_gateway_subscription_url';
-	$url = charitable_sanitize_donation_meta( $url, $key );
-	return update_post_meta( $donation->ID, $key, $url );
-}
+endif;
