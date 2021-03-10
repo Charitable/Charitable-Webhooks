@@ -183,7 +183,25 @@ class SubscriptionProcessor extends DonationProcessor {
 		$this->update_meta();
 		$this->update_logs();
 
-		$this->set_response( __( 'Subscription Webhook: First payment processed', 'charitable' ) );
+		$this->set_response( __( 'Subscription Webhook: First payment processed.', 'charitable' ) );
+
+		return true;
+	}
+
+	/**
+	 * Process a cancelled subscription.
+	 *
+	 * @since  1.0.0
+	 *
+	 * @return boolean
+	 */
+	public function process_cancellation() {
+		$this->recurring_donation->set_to_cancelled();
+
+		$this->update_meta();
+		$this->update_logs();
+
+		$this->set_response( __( 'Subscription Webhook: Subscription cancelled.', 'charitable' ) );
 
 		return true;
 	}
