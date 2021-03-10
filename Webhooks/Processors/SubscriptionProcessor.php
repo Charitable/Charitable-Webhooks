@@ -85,6 +85,14 @@ class SubscriptionProcessor extends DonationProcessor {
 	 * @return boolean|void
 	 */
 	public function process() {
+		if ( ! class_exists( 'Charitable_Recurring' ) ) {
+			$this->set_response(
+				__( 'Subscription Webhook: Recurring Donations plugin is not active so this webhook cannot be processed.', 'charitable' )
+			);
+
+			return false;
+		}
+
 		$this->recurring_donation = $this->interpreter->get_recurring_donation();
 
 		/* Without a recurring donation, there's nothing left to do. */
